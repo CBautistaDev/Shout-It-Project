@@ -11,10 +11,11 @@
     <div id="container">
         <header>
             <h1>SHOUT IT ! Shoutbox </h1>
+            </header>
+
             <ul>
                 <li></li>
             </ul>
-        </header>
     </div>
 </body>
 
