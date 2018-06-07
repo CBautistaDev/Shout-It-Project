@@ -11,11 +11,19 @@
     <div id="container">
         <header>
             <h1>SHOUT IT ! Shoutbox </h1>
-            </header>
+        </header>
+        <div id="shouts">
 
             <ul>
-                <li></li>
+                <li class = "shout" >
+                
+                <span>10:19 PM</span>
+                
+                </li>
             </ul>
+
+        </div>
+
     </div>
 </body>
 
