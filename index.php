@@ -1,3 +1,11 @@
+<?php include 'database.php'; ?>
+<?php  
+//Create Select Query \
+$query = "SELECT * FROM shouts ORDER BY id DESC";
+$shouts = mysqli_query($con, $query);
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -15,41 +23,34 @@
         <div id="shouts">
 
             <ul>
+                <?php while($row = mysqli_fetch_assoc($shouts)): ?>
                 <li class="shout">
 
-                    <span>10:19 PM</span>
-                    Brad: Hey what are you guys up to?
+                    <span>
+                        <?php echo $row['time']?>
+                    </span>
+                    -
+                    <strong>
+                        <?php echo $row['user'] ?>:
+                    </strong>
+                    <?php echo $row['message']?>
                 </li>
-                <li class="shout">
 
-                    <span>10:19 PM</span>
-                    Brad: Hey what are you guys up to?
-                </li>
-                <li class="shout">
+                <?php endwhile; ?>
 
-                    <span>10:19 PM</span>
-                    Brad: Hey what are you guys up to?
-                </li>
-                <li class="shout">
 
-                    <span>10:19 PM</span>
-                    Brad: Hey what are you guys up to?
-                </li>
-                <li class="shout">
-
-                    <span>10:19 PM</span>
-                    Brad: Hey what are you guys up to?
-                </li>
             </ul>
 
         </div>
         <div id="input">
-
+<?php if(isset($_GET['error'])):  ?>
+<div class="error"><?php echo $_GET ['error']; ?></div>
+<?php endif; ?>
             <form method="post" action="proccess.php">
                 <input type="text" name="user" placeholder="Enter Your Name" />
-                <input type="text" name = "message" placeholder = "Enter A Message" />
+                <input type="text" name="message" placeholder="Enter A Message" />
                 <br/>
-                <input class = "shout-btn" type="submit" name = "submit" value = "Shout It Out">
+                <input class="shout-btn" type="submit" name="submit" value="Shout It Out">
 
             </form>
 
